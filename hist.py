@@ -16,7 +16,7 @@ def make_hist():
     histFig = singleDf.plot.hist(bins=binNum).get_figure()
     sheet.pictures.add(histFig)
 
-    binnedP = pd.cut(singleDf['total'], binNum)
+    binnedP = pd.cut(singleDf[:, 0], binNum)
     bp = binnedP.value_counts(sort=False)
 
     bpPair = zip(map(str, bp.index), bp)
